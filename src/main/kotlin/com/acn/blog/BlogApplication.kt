@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping
 @SpringBootApplication
 class BlogApplication
 
+data class User(val name: String)
 @Controller
 class Home {
     @RequestMapping("/")
     fun index(model: Model): String {
-       model["name"] = "spring boot!!!!"
+        val user1 = User("Eric")
+       model["user"] = user1
         return "index"
 
     }
