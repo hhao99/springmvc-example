@@ -1,4 +1,4 @@
-package com.acn.blog
+package com.acn.app
 
 import org.junit.Test
 import org.junit.runner.RunWith
