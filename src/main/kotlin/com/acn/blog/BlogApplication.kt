@@ -5,18 +5,24 @@ import org.springframework.boot.runApplication
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.ui.set
-import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.*
 
 @SpringBootApplication
 class BlogApplication
 
-data class User(val name: String)
+data class User(var name: String = "")
 @Controller
 class Home {
-    @RequestMapping("/")
+    @GetMapping("/")
     fun index(model: Model): String {
-        val user1 = User("Eric")
-       model["user"] = user1
+        model.addAttribute("user",User("Spring boot"))
+        return "index"
+
+    }
+    @PostMapping("/sayHello")
+    fun sayHello(@ModelAttribute("user") user: User,model: Model): String {
+        model.addAttribute("user",user)
+
         return "index"
 
     }

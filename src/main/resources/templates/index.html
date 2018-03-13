@@ -8,5 +8,12 @@
 <h1 th:text="'Hello '+${user.name}" />
 
 <h2>Welcome</h2>
+
+<form method="post" action="#" th:object="${user}" th:action="@{/sayHello}">
+
+    <input type="text" th:field="*{name}"/>
+    <input type="submit" value="sayHello" />
+
+</form>
 </body>
 </html>
