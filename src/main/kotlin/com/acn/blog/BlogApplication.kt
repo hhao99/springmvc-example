@@ -15,6 +15,8 @@ data class User(var name: String = "")
 class Home {
     @GetMapping("/")
     fun index(model: Model): String {
+
+        model.addAttribute("users",arrayOf(User("eric"),User("crystal")))
         model.addAttribute("user",User("Spring boot"))
         return "index"
 
